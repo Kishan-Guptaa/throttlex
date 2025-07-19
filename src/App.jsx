@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
-import Footer from "./components/footer"; // ✅ correct path (case-sensitive)
+import Footer from "./components/footer";
 
 // Core components
 import Hero from "./components/Hero";
@@ -9,12 +9,14 @@ import Bikelogo from "./components/Bikelogo";
 import Carlogo from "./components/Carlogo";
 import VideoComponent from "./components/VideoComponent";
 import Favourite from "./components/Favourite";
+import Contact from "./components/contact";
+import Home from "./components/Home"; // ✅ New component added
 
 // Pages
 import Bikes from "./pages/Bikes";
 import Cars from "./pages/Cars";
 
-// Car brands
+// Car Brands
 import Tesla from "./pages/brands/Tesla";
 import BMW from "./pages/brands/bmw";
 import Ferrari from "./pages/brands/Ferrari ";
@@ -28,7 +30,7 @@ import Porsche from "./pages/brands/Porsche";
 import Tata from "./pages/brands/Tata";
 import Toyota from "./pages/brands/Toyota";
 
-// Bike brands
+// Bike Brands
 import BajajAuto from "./pages/BikeBrands/BajajAuto";
 import BMWMotorrad from "./pages/BikeBrands/BMWMotorrad";
 import CFMoto from "./pages/BikeBrands/CFMoto";
@@ -41,12 +43,11 @@ import RoyalEnfield from "./pages/BikeBrands/RoyalEnfield";
 import Suzuki from "./pages/BikeBrands/Suzuki";
 import TVSMotor from "./pages/BikeBrands/TVSMotor";
 import Yamaha from "./pages/BikeBrands/Yamaha";
-import Contact from "./components/contact";
 
 export default function App() {
   return (
-    <div className="font-serif ">
-      <BrowserRouter>
+    <div className="font-serif">
+      <BrowserRouter >
         <Routes>
           {/* Homepage layout */}
           <Route
@@ -60,6 +61,16 @@ export default function App() {
                 <Favourite />
                 <Footer />
               </>
+            }
+          />
+
+          {/* New Home route */}
+          <Route
+            path="/home"
+            element={
+              <Layout>
+                <Home />
+              </Layout>
             }
           />
 
@@ -91,9 +102,9 @@ export default function App() {
           <Route
             path="/contact"
             element={
-              
+              <Layout>
                 <Contact />
-              
+              </Layout>
             }
           />
           <Route

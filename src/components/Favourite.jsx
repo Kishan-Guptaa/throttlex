@@ -3,23 +3,41 @@ import "../index.css";
 import { motion } from "framer-motion";
 
 export default function Favourite() {
+  // const vehicles = [
+  //   { name: "Indian Scout", type: "Bike", image: "/fav/Indian-Scout.jpg" },
+  //   { name: "Suzuki SV650", type: "Bike", image: "/fav/suzuki-sv650-.png" },
+  //   { name: "Yamaha FZ-S FI", type: "Bike", image: "/fav/Yamaha-FZ-S-FI.webp" },
+  //   { name: "Honda Africa Twin", type: "Bike", image: "/fav/hondaafrica-twin.jpg" },
+  //   { name: "Royal Enfield", type: "Bike", image: "/fav/royal-enfield-continental-gt-650-58.jpg" },
+  //   { name: "Honda CB500F", type: "Bike", image: "/fav/Honda-CB500F.jpg" },
+  //   { name: "Harley Davidson", type: "Bike", image: "/fav/harleydavidson-street-750.webp" },
+  //   { name: "BMW 7 Series", type: "Car", image: "/fav/BMW-7-Series-car.avif" },
+  //   { name: "Range Rover", type: "Car", image: "/fav/car.webp" },
+  //   { name: "Defender", type: "Car", image: "/fav/Defender.avif" },
+  //   { name: "Fortuner", type: "Bike", image: "/fav/fortunerr.jpg" },
+  //   { name: "Endeavour", type: "Car", image: "/fav/Endeavour1.jpg" },
+  //   { name: "G Wagon", type: "Car", image: "/fav/g.jpg" },
+  //   { name: "Datsun 240Z", type: "Car", image: "/fav/Datsun-240Z.jpg" },
+  //   { name: "Mercedes-Benz", type: "Car", image: "/fav/mercedes-benz.jpg" },
+  // ];
   const vehicles = [
-    { name: "Indian Scout", type: "Bike", image: "/fav/Indian-Scout.jpg" },
-    { name: "Suzuki SV650", type: "Bike", image: "/fav/suzuki-sv650-.png" },
-    { name: "Yamaha FZ-S FI", type: "Bike", image: "/fav/Yamaha-FZ-S-FI.webp" },
-    { name: "Honda Africa Twin", type: "Bike", image: "/fav/hondaafrica-twin.jpg" },
-    { name: "Royal Enfield", type: "Bike", image: "/fav/royal-enfield-continental-gt-650-58.jpg" },
-    { name: "Honda CB500F", type: "Bike", image: "/fav/Honda-CB500F.jpg" },
-    { name: "Harley Davidson", type: "Bike", image: "/fav/harleydavidson-street-750.webp" },
-    { name: "BMW 7 Series", type: "Car", image: "/fav/BMW-7-Series-car.avif" },
-    { name: "Range Rover", type: "Car", image: "/fav/car.webp" },
-    { name: "Defender", type: "Car", image: "/fav/Defender.avif" },
-    { name: "Fortuner", type: "Bike", image: "/fav/fortunerr.jpg" },
-    { name: "Endeavour", type: "Car", image: "/fav/Endeavour1.jpg" },
-    { name: "G Wagon", type: "Car", image: "/fav/g.jpg" },
-    { name: "Datsun 240Z", type: "Car", image: "/fav/Datsun-240Z.jpg" },
-    { name: "Mercedes-Benz", type: "Car", image: "/fav/mercedes-benz.jpg" },
-  ];
+  { name: "Indian Scout", type: "Bike", image: `${import.meta.env.BASE_URL}fav/Indian-Scout.jpg` },
+  { name: "Suzuki SV650", type: "Bike", image: `${import.meta.env.BASE_URL}fav/suzuki-sv650-.png` },
+  { name: "Yamaha FZ-S FI", type: "Bike", image: `${import.meta.env.BASE_URL}fav/Yamaha-FZ-S-FI.webp` },
+  { name: "Honda Africa Twin", type: "Bike", image: `${import.meta.env.BASE_URL}fav/hondaafrica-twin.jpg` },
+  { name: "Royal Enfield", type: "Bike", image: `${import.meta.env.BASE_URL}fav/royal-enfield-continental-gt-650-58.jpg` },
+  { name: "Honda CB500F", type: "Bike", image: `${import.meta.env.BASE_URL}fav/Honda-CB500F.jpg` },
+  { name: "Harley Davidson", type: "Bike", image: `${import.meta.env.BASE_URL}fav/harleydavidson-street-750.webp` },
+  { name: "BMW 7 Series", type: "Car", image: `${import.meta.env.BASE_URL}fav/BMW-7-Series-car.avif` },
+  { name: "Range Rover", type: "Car", image: `${import.meta.env.BASE_URL}fav/car.webp` },
+  { name: "Defender", type: "Car", image: `${import.meta.env.BASE_URL}fav/Defender.avif` },
+  { name: "Fortuner", type: "Bike", image: `${import.meta.env.BASE_URL}fav/fortunerr.jpg` },
+  { name: "Endeavour", type: "Car", image: `${import.meta.env.BASE_URL}fav/Endeavour1.jpg` },
+  { name: "G Wagon", type: "Car", image: `${import.meta.env.BASE_URL}fav/g.jpg` },
+  { name: "Datsun 240Z", type: "Car", image: `${import.meta.env.BASE_URL}fav/Datsun-240Z.jpg` },
+  { name: "Mercedes-Benz", type: "Car", image: `${import.meta.env.BASE_URL}fav/mercedes-benz.jpg` },
+];
+
 
   return (
     <>

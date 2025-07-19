@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Contact() {
   return (
-    <div className="min-h-screen bg-[#f0f4f8] flex items-center justify-center px-4 sm:px-6 py-12">
+    <div className="min-h-screen  flex items-center justify-center px-4 sm:px-6 py-12">
       <div className="max-w-6xl w-full flex flex-col lg:flex-row items-center justify-between bg-white rounded-2xl shadow-xl p-6 sm:p-10 gap-10">
 
         {/* Left Section - Text + Form */}
@@ -70,10 +70,11 @@ export default function Contact() {
         {/* Right Section - Image */}
         <div className="lg:w-1/2 w-full flex justify-center">
           <img
-            src="/profile1.jpg"
-            alt="Bike & Car Contact Illustration"
-            className="w-full max-w-sm rounded-xl shadow-md object-cover"
-          />
+  src={`${import.meta.env.BASE_URL}profile1.jpg`}
+  alt="Bike & Car Contact Illustration"
+  className="w-full max-w-sm rounded-xl shadow-md object-cover"
+/>
+
         </div>
       </div>
     </div>
