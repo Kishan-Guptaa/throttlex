@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom"; // Assuming you're using React Router
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -24,56 +25,64 @@ export default function Navbar() {
       `}
     >
       <div className="flex items-center gap-4">
-        {/* Profile Image always shown at left */}
-        <img
-          src="/profile1.jpg" // ✅ Make sure the image path is correct
-          alt="Profile"
-          className="w-14 h-14 rounded-full border-2 border-white object-cover"
-        />
+        {/* Profile Image always visible */}
+        <Link to="/">
+          <img
+            src="/profile1.jpg" // ✅ Ensure this path exists in your public folder
+            alt="Profile"
+            className="w-14 h-14 rounded-full border-2 border-white object-cover"
+          />
+        </Link>
 
-        {/* Brand */}
-        <div className="text-white text-xl md:text-2xl font-bold tracking-wide">
+        {/* Logo or Brand Name */}
+        <Link
+          to="/"
+          className="text-white text-xl md:text-2xl font-bold tracking-wide"
+        >
           THROTTLEX
-        </div>
+        </Link>
 
-        {/* Links - hidden when scrolled */}
+        {/* Hamburger Menu Button - visible only on mobile */}
         {!isScrolled && (
-          <>
-            {/* Hamburger for mobile */}
-            <div className="ml-auto md:hidden">
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="text-white focus:outline-none"
-              >
-                {isOpen ? <X size={28} /> : <Menu size={28} />}
-              </button>
-            </div>
+          <div className="ml-auto md:hidden">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-white focus:outline-none"
+            >
+              {isOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
+        )}
 
-            {/* Desktop Links */}
-            <ul className="hidden md:flex gap-4 md:gap-8 text-lg md:text-xl text-white font-medium ml-auto">
-              <li>
-                <a href="/bikes" className="hover:text-gray-300 transition">
-                  Bikes
-                </a>
-              </li>
-              <li>
-                <a href="/cars" className="hover:text-gray-300 transition">
-                  Cars
-                </a>
-              </li>
-            </ul>
-          </>
+        {/* Desktop Nav Links */}
+        {!isScrolled && (
+          <ul className="hidden md:flex gap-4 md:gap-8 text-lg md:text-xl text-white font-medium ml-auto">
+            <li>
+              <Link to="/bikes" className="hover:text-gray-300 transition">
+                Bikes
+              </Link>
+            </li>
+            <li>
+              <Link to="/cars" className="hover:text-gray-300 transition">
+                Cars
+              </Link>
+            </li>
+          </ul>
         )}
       </div>
 
-      {/* Mobile Menu - hidden when scrolled */}
+      {/* Mobile Dropdown Links */}
       {!isScrolled && isOpen && (
         <ul className="mt-4 md:hidden flex flex-col gap-4 text-white text-lg font-medium">
           <li>
-            <a href="/bikes" className="hover:text-gray-300 transition">Bikes</a>
+            <Link to="/bikes" className="hover:text-gray-300 transition">
+              Bikes
+            </Link>
           </li>
           <li>
-            <a href="/cars" className="hover:text-gray-300 transition">Cars</a>
+            <Link to="/cars" className="hover:text-gray-300 transition">
+              Cars
+            </Link>
           </li>
         </ul>
       )}

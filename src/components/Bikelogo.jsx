@@ -69,7 +69,7 @@ export default function Bikelogo() {
         viewport={{ once: true }}
         className="text-gray-800 py-10 text-center text-3xl font-extrabold tracking-wide"
       >
-        TRENDING BRANDS
+        TRENDING BIKE BRANDS
       </motion.div>
 
       {/* Logos Grid */}

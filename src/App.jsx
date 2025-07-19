@@ -1,7 +1,6 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
-import Footer from "./components/footer";
 
 // Core components
 import Hero from "./components/Hero";
@@ -10,7 +9,7 @@ import Carlogo from "./components/Carlogo";
 import VideoComponent from "./components/VideoComponent";
 import Favourite from "./components/Favourite";
 import Contact from "./components/contact";
-import Home from "./components/Home"; // ✅ New component added
+import Home from "./components/Home";
 
 // Pages
 import Bikes from "./pages/Bikes";
@@ -47,128 +46,69 @@ import Yamaha from "./pages/BikeBrands/Yamaha";
 export default function App() {
   return (
     <div className="font-serif">
-      <BrowserRouter >
-        <Routes>
-          {/* Homepage layout */}
-          <Route
-            path="/"
-            element={
-              <>
-                <Hero />
-                <Bikelogo />
-                <Carlogo />
-                <VideoComponent />
-                <Favourite />
-                <Footer />
-              </>
-            }
-          />
+      <Routes>
+        {/* Contact page - without Layout */}
+        <Route path="/contact" element={<Contact />} />
 
-          {/* New Home route */}
-          <Route
-            path="/home"
-            element={
-              <Layout>
-                <Home />
-              </Layout>
-            }
-          />
+        {/* All other pages - with Navbar/Footer */}
+        <Route
+          path="/*"
+          element={
+            <Layout>
+              <Routes>
+                <Route
+                  path="/"
+                  element={
+                    <>
+                      <Hero />
+                      <Bikelogo />
+                      <Carlogo />
+                      <VideoComponent />
+                      <Favourite />
+                    </>
+                  }
+                />
+                <Route path="/home" element={<Home />} />
+                <Route path="/bikes" element={<Bikes />} />
+                <Route path="/cars" element={<Cars />} />
+                <Route path="/hero" element={<Hero />} />
+                <Route path="/bikelogo" element={<Bikelogo />} />
+                <Route path="/carlogo" element={<Carlogo />} />
+                <Route path="/video" element={<VideoComponent />} />
+                <Route path="/favourites" element={<Favourite />} />
 
-          {/* Layout-wrapped routes */}
-          <Route
-            path="/bikes"
-            element={
-              <Layout>
-                <Bikes />
-              </Layout>
-            }
-          />
-          <Route
-            path="/cars"
-            element={
-              <Layout>
-                <Cars />
-              </Layout>
-            }
-          />
-          <Route
-            path="/hero"
-            element={
-              <Layout>
-                <Hero />
-              </Layout>
-            }
-          />
-          <Route
-            path="/contact"
-            element={
-              <Layout>
-                <Contact />
-              </Layout>
-            }
-          />
-          <Route
-            path="/bikelogo"
-            element={
-              <Layout>
-                <Bikelogo />
-              </Layout>
-            }
-          />
-          <Route
-            path="/carlogo"
-            element={
-              <Layout>
-                <Carlogo />
-              </Layout>
-            }
-          />
-          <Route
-            path="/video"
-            element={
-              <Layout>
-                <VideoComponent />
-              </Layout>
-            }
-          />
-          <Route
-            path="/favourites"
-            element={
-              <Layout>
-                <Favourite />
-              </Layout>
-            }
-          />
+                {/* Car Brands */}
+                <Route path="/brands/Tesla" element={<Tesla />} />
+                <Route path="/brands/Bmw" element={<BMW />} />
+                <Route path="/brands/Ferrari" element={<Ferrari />} />
+                <Route path="/brands/Hyundai" element={<Hyundai />} />
+                <Route path="/brands/Kia" element={<Kia />} />
+                <Route path="/brands/Lamborghini" element={<Lamborghini />} />
+                <Route path="/brands/Maruti" element={<Maruti />} />
+                <Route path="/brands/MercedesBenz" element={<MercedesBenz />} />
+                <Route path="/brands/MG" element={<MG />} />
+                <Route path="/brands/Porsche" element={<Porsche />} />
+                <Route path="/brands/Tata" element={<Tata />} />
+                <Route path="/brands/Toyota" element={<Toyota />} />
 
-          {/* Car Brands */}
-          <Route path="/brands/Tesla" element={<Layout><Tesla /></Layout>} />
-          <Route path="/brands/Bmw" element={<Layout><BMW /></Layout>} />
-          <Route path="/brands/Ferrari" element={<Layout><Ferrari /></Layout>} />
-          <Route path="/brands/Hyundai" element={<Layout><Hyundai /></Layout>} />
-          <Route path="/brands/Kia" element={<Layout><Kia /></Layout>} />
-          <Route path="/brands/Lamborghini" element={<Layout><Lamborghini /></Layout>} />
-          <Route path="/brands/Maruti" element={<Layout><Maruti /></Layout>} />
-          <Route path="/brands/MercedesBenz" element={<Layout><MercedesBenz /></Layout>} />
-          <Route path="/brands/MG" element={<Layout><MG /></Layout>} />
-          <Route path="/brands/Porsche" element={<Layout><Porsche /></Layout>} />
-          <Route path="/brands/Tata" element={<Layout><Tata /></Layout>} />
-          <Route path="/brands/Toyota" element={<Layout><Toyota /></Layout>} />
-
-          {/* Bike Brands */}
-          <Route path="/bikebrands/BajajAuto" element={<Layout><BajajAuto /></Layout>} />
-          <Route path="/bikebrands/BMWMotorrad" element={<Layout><BMWMotorrad /></Layout>} />
-          <Route path="/bikebrands/CFMoto" element={<Layout><CFMoto /></Layout>} />
-          <Route path="/bikebrands/Ducati" element={<Layout><Ducati /></Layout>} />
-          <Route path="/bikebrands/HarleyDavidson" element={<Layout><HarleyDavidson /></Layout>} />
-          <Route path="/bikebrands/HeroMotoCorp" element={<Layout><HeroMotoCorp /></Layout>} />
-          <Route path="/bikebrands/Kawasaki" element={<Layout><Kawasaki /></Layout>} />
-          <Route path="/bikebrands/KTM" element={<Layout><KTM /></Layout>} />
-          <Route path="/bikebrands/RoyalEnfield" element={<Layout><RoyalEnfield /></Layout>} />
-          <Route path="/bikebrands/Suzuki" element={<Layout><Suzuki /></Layout>} />
-          <Route path="/bikebrands/TVSMotor" element={<Layout><TVSMotor /></Layout>} />
-          <Route path="/bikebrands/Yamaha" element={<Layout><Yamaha /></Layout>} />
-        </Routes>
-      </BrowserRouter>
+                {/* Bike Brands */}
+                <Route path="/bikebrands/BajajAuto" element={<BajajAuto />} />
+                <Route path="/bikebrands/BMWMotorrad" element={<BMWMotorrad />} />
+                <Route path="/bikebrands/CFMoto" element={<CFMoto />} />
+                <Route path="/bikebrands/Ducati" element={<Ducati />} />
+                <Route path="/bikebrands/HarleyDavidson" element={<HarleyDavidson />} />
+                <Route path="/bikebrands/HeroMotoCorp" element={<HeroMotoCorp />} />
+                <Route path="/bikebrands/Kawasaki" element={<Kawasaki />} />
+                <Route path="/bikebrands/KTM" element={<KTM />} />
+                <Route path="/bikebrands/RoyalEnfield" element={<RoyalEnfield />} />
+                <Route path="/bikebrands/Suzuki" element={<Suzuki />} />
+                <Route path="/bikebrands/TVSMotor" element={<TVSMotor />} />
+                <Route path="/bikebrands/Yamaha" element={<Yamaha />} />
+              </Routes>
+            </Layout>
+          }
+        />
+      </Routes>
     </div>
   );
 }
