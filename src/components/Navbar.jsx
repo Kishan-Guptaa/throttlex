@@ -28,10 +28,11 @@ export default function Navbar() {
         {/* Profile Image always visible */}
         <Link to="/">
           <img
-            src="/profile1.jpg" // ✅ Ensure this path exists in your public folder
-            alt="Profile"
-            className="w-14 h-14 rounded-full border-2 border-white object-cover"
-          />
+  src={`${import.meta.env.BASE_URL}profile1.jpg`}
+  alt="Profile"
+  className="w-14 h-14 rounded-full border-2 border-white object-cover"
+/>
+
         </Link>
 
         {/* Logo or Brand Name */}
